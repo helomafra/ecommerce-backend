@@ -1,6 +1,5 @@
 const knex = require('../database/knex');
 const AppError = require('../utils/AppError');
-const sqliteConnection = require('../database/sqlite');
 
 class CartController {
   async index(request, response) {
@@ -17,8 +16,6 @@ class CartController {
   }
 
   async create(request, response) {
-    const database = await sqliteConnection();
-
     const { productId } = request.params;
 
     const product = await knex('products').where({ id: productId }).first();
@@ -39,22 +36,21 @@ class CartController {
         });
     } else {
       //ajustar essa parte pra fazer com o knex
-      await database.run(
-        'INSERT INTO cart (product_id, amount) VALUES (?, ?)',
-        [productId, 1]
-      );
+      // await database.run(
+      //   'INSERT INTO cart (product_id, amount) VALUES (?, ?)',
+      //   [productId, 1]
+      // );
 
-      // await knex('cart').insert({
-      //   product_id: Number(productId),
-      //   amount: 1
-      // });
+      await knex('cart').insert({
+        product_id: Number(productId),
+        amount: 1
+      });
     }
 
     return response.json();
   }
 
   async delete(request, response) {
-    const database = await sqliteConnection();
     const { productId } = request.params;
 
     const product = await knex('cart').where({ product_id: productId }).first();
@@ -75,11 +71,11 @@ class CartController {
             amount: cartItem.amount - 1
           });
       } else {
-        await database.run('DELETE FROM cart WHERE id = ?', [cartItem.id]);
+        // await database.run('DELETE FROM cart WHERE id = ?', [cartItem.id]);
 
-        // await knex('cart')
-        //   .where({ id: cartItem.id })
-        //   .delete(['id', 'product_id', 'amount']);
+        await knex('cart')
+          .where({ id: cartItem.id })
+          .delete(['id', 'product_id', 'amount']);
       }
     }
 
@@ -87,7 +83,6 @@ class CartController {
   }
 
   async deleteAll(request, response) {
-    const database = await sqliteConnection();
     const { productId } = request.params;
 
     const product = await knex('cart').where({ product_id: productId }).first();
@@ -96,7 +91,11 @@ class CartController {
       throw new AppError('Produto não entrado!');
     }
 
-    await database.run('DELETE FROM cart WHERE product_id = ?', [productId]);
+    await knex('cart')
+      .where({ product_id: productId })
+      .delete(['id', 'product_id', 'amount']);
+
+    // database.run('DELETE FROM cart WHERE product_id = ?', [productId]);
 
     return response.json();
   }
