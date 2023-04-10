@@ -5,16 +5,19 @@ class OrdersController {
   async createOrder(request, response) {
     const { user_name, delivery_date, products } = request.body;
 
-    const today = new Date();
-    console.log(today);
-    console.log(delivery_date);
-
     if (user_name.length === 0) {
       throw new AppError("O campo 'nome' é obrigatório!");
     }
 
     if (delivery_date.length === 0) {
       throw new AppError("O campo 'data de entrega' é obrigatório!");
+    }
+
+    const today = new Date();
+    const convertDeliveryDate = new Date(delivery_date);
+
+    if (convertDeliveryDate <= today) {
+      throw new AppError('A data de entrega deve ser uma data futura!');
     }
 
     for (let product of products) {
