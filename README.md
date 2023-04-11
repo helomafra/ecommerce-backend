@@ -23,6 +23,8 @@ Desenvolvido para participação no processo seletivo da empresa Shopper.com.br.
 
 ## Endpoints e Documentação da API
 
+https://shopper-test-api.netlify.app/
+
 [![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Shopper%20Teste%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fhelomafra%2Fecommerce-backend%2Fmain%2Fexport.json)
 
 ## Documentação de funcionamento
