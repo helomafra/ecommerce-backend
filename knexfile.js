@@ -9,8 +9,8 @@ module.exports = {
       port: Number(process.env.DB_PORT),
       user: process.env.DB_USER,
       password: process.env.DB_PASSWORD,
-      database: process.env.DB_DATABASE,
-      ssl: true
+      database: process.env.DB_DATABASE
+      // ssl: true -> usar somente quando apontar localhost pra produção
     },
 
     migrations: {
