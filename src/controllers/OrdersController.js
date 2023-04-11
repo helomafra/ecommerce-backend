@@ -42,14 +42,17 @@ class OrdersController {
       }
     }
 
-    const [order] = await knex('orders').insert({
-      user_name,
-      delivery_date
-    });
+    const [order] = await knex('orders').insert(
+      {
+        user_name,
+        delivery_date
+      },
+      ['id']
+    );
 
     for (let product of products) {
       await knex('orders_products').insert({
-        order_id: order,
+        order_id: order.id,
         product_id: product.productId,
         qty: product.amount
       });
