@@ -6,6 +6,6 @@ const productsRoutes = Router();
 const productsController = new ProductsController();
 
 productsRoutes.get('/', productsController.index);
-// productsRoutes.get('/search', productsController.search);
+productsRoutes.get('/search', productsController.search);
 
 module.exports = productsRoutes;

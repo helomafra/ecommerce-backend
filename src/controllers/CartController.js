@@ -35,12 +35,6 @@ class CartController {
           amount: cartItem.amount + 1
         });
     } else {
-      //ajustar essa parte pra fazer com o knex
-      // await database.run(
-      //   'INSERT INTO cart (product_id, amount) VALUES (?, ?)',
-      //   [productId, 1]
-      // );
-
       await knex('cart').insert({
         product_id: Number(productId),
         amount: 1
@@ -71,8 +65,6 @@ class CartController {
             amount: cartItem.amount - 1
           });
       } else {
-        // await database.run('DELETE FROM cart WHERE id = ?', [cartItem.id]);
-
         await knex('cart')
           .where({ id: cartItem.id })
           .delete(['id', 'product_id', 'amount']);
@@ -94,8 +86,6 @@ class CartController {
     await knex('cart')
       .where({ product_id: productId })
       .delete(['id', 'product_id', 'amount']);
-
-    // database.run('DELETE FROM cart WHERE product_id = ?', [productId]);
 
     return response.json();
   }

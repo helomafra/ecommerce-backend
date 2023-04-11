@@ -20,6 +20,10 @@ class OrdersController {
       throw new AppError('A data de entrega deve ser uma data futura!');
     }
 
+    if (products.length === 0) {
+      throw new AppError('Adicione ao menos um item para finalizar a compra!');
+    }
+
     for (let product of products) {
       const [getProduct] = await knex('products').where({
         id: product.productId
@@ -60,6 +64,8 @@ class OrdersController {
           stock: updateProductStock.stock - product.amount
         });
     }
+
+    await knex('cart').delete(['id', 'product_id', 'amount']);
 
     return response.json('Pedido criado com sucesso!');
   }
