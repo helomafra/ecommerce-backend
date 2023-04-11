@@ -10,25 +10,60 @@ Desenvolvido para participação no processo seletivo da empresa Shopper.com.br.
 - JavaScript
 - Express
 - Knex
-- SQLite
 
 ## Acesse
 
 - App
   https://shoppertest.vercel.app/
 
-- Backend
+- Deploy backend
   https://ecommerce-api-csrl.onrender.com
 
 ![App Screenshot](https://i.imgur.com/jKjgwdJ.png)
 
-## Documentação de Funcionamento
+## Endpoints e Documentação da API
 
-Clonar este repositório
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Shopper%20Teste%20API&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fhelomafra%2Fecommerce-backend%2Fmain%2Fexport.json)
 
-Executar:
+## Documentação de funcionamento
 
-- `npm install`
-- `npm start`
-- `npm run migrate`
-- `npm run db:seed`
+Clone o projeto
+
+```bash
+  git clone https://github.com/helomafra/ecommerce-backend
+```
+
+Crie um arquivo .env com os dados:
+
+```bash
+DB_HOST=
+DB_PORT=
+DB_USER=
+DB_PASSWORD=
+DB_DATABASE=
+NODE_ENV=
+```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+```bash
+  npm start
+```
+
+Faça as migrations
+
+```bash
+  npm run migrate
+```
+
+Alimente o banco
+
+```bash
+ npm run db:seed
+```
