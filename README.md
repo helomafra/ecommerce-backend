@@ -29,6 +29,6 @@ Clonar este repositório
 Executar:
 
 - `npm install`
-- `npm run dev`
+- `npm start`
 - `npm run migrate`
 - `npm run db:seed`
