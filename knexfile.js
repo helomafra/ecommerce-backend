@@ -2,7 +2,7 @@ const path = require('path');
 require('dotenv').config();
 
 module.exports = {
-  development: {
+  production: {
     client: 'pg',
     connection: {
       host: process.env.DB_HOST,
