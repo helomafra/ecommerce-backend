@@ -1,12 +1,11 @@
-
 # E-commerce Shopper
 
-Projeto de um ecommerce de supermercado. Dentre os produtos exibidos, o usuário pode adicioná-los no carrinho e simular um pedido, inserindo seu nome e uma data de entrega. 
+Projeto de um ecommerce de supermercado. Dentre os produtos exibidos, o usuário pode adicioná-los no carrinho e simular um pedido, inserindo seu nome e uma data de entrega.
 
 Desenvolvido para participação no processo seletivo da empresa Shopper.com.br.
 
+## 🚀 Tecnologias:
 
-## 🚀 Tecnologias: 
 - NodeJS
 - JavaScript
 - Express
@@ -14,15 +13,21 @@ Desenvolvido para participação no processo seletivo da empresa Shopper.com.br.
 - SQLite
 
 ## Acesse
-http://localhost:5174/cart
+
+- App
+  https://shoppertest.vercel.app/
+
+- Backend
+  https://ecommerce-api-csrl.onrender.com
 
 ![App Screenshot](https://i.imgur.com/jKjgwdJ.png)
 
-
 ## Documentação de Funcionamento
+
 Clonar este repositório
 
 Executar:
+
 - `npm install`
 - `npm run dev`
 - `npm run migrate`
