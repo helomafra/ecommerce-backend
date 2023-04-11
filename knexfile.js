@@ -1,10 +1,15 @@
 const path = require('path');
+require('dotenv').config();
 
 module.exports = {
   development: {
-    client: 'sqlite3',
+    client: 'pg',
     connection: {
-      filename: path.resolve(__dirname, 'src', 'database', 'database.db')
+      host: process.env.DB_HOST,
+      port: Number(process.env.DB_PORT),
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE
     },
 
     migrations: {

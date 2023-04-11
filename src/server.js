@@ -4,6 +4,7 @@ const express = require('express');
 const routes = require('./routes');
 const database = require('./database/sqlite');
 const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 app.use(cors());
