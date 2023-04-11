@@ -6,17 +6,6 @@ class ProductsController {
 
     return response.json(products);
   }
-
-  async search(request, response) {
-    const { title } = request.query;
-
-    const search = await knex('products').whereLike(
-      'products.name',
-      `%${title}%`
-    );
-
-    return response.json(search);
-  }
 }
 
 module.exports = ProductsController;
