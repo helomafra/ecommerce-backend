@@ -19,7 +19,7 @@ Desenvolvido para participação no processo seletivo da empresa Shopper.com.br.
 - Deploy backend
   https://ecommerce-api-csrl.onrender.com
 
-![App Screenshot](https://i.imgur.com/jKjgwdJ.png)
+![App Screenshot](https://i.imgur.com/iOfCQ5P.png)
 
 ## Endpoints e Documentação da API
 
